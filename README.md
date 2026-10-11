@@ -37,19 +37,70 @@ super-pixel-duegon/
 - KryoNet (server/client iletişimi)
 - Yerel ağ protokolü ve dinamik oyun örnekleri
 
-## Hızlı Başlangıç
+## İndir ve Çalıştır
 
+### Hızlı Kurulum (Hazır JAR Dosyaları)
+
+Aşağıdaki linklerden sunucu ve istemci JAR dosyalarını indirin:
+
+- **[Sunucu İndir (super-pixel-duegon-server.jar)](https://github.com/yusuf0121-hub/super-pixel-duegon/releases)**
+- **[İstemci İndir (super-pixel-duegon-client.jar)](https://github.com/yusuf0121-hub/super-pixel-duegon/releases)**
+
+### Oyunu Çalıştırın
+
+**1. Sunucuyu başlatın:**
+```bash
+java -jar super-pixel-duegon-server.jar
+```
+
+Sunucu `localhost:54555` adresinde çalışmaya başlayacaktır.
+
+**2. İstemciyi başlatın (ayrı bir terminal):**
+```bash
+java -jar super-pixel-duegon-client.jar
+```
+
+İstemci sunucuya bağlanacak ve oyuna girebilirsiniz.
+
+### Komutlar
+
+İstemci içinde şu komutları kullanabilirsiniz:
+
+- **Sohbet:** Yazıp Enter'e basın
+  ```
+  Merhaba!
+  ```
+
+- **Tile Değiştirme:** `tile:x:y:tileType` formatında
+  ```
+  tile:5:8:WALL
+  tile:10:10:FLOOR
+  ```
+
+- **Çıkış:** `quit` yazıp Enter'e basın
+
+## Geliştirme Ortamında Çalıştırma
+
+Eğer kodu geliştirmek istiyorsanız:
+
+### Sunucuyu Çalıştırın
 ```bash
 gradle :server:run
 ```
 
-Ayrı bir istemci başlatmak için:
-
+### İstemciyi Çalıştırın
 ```bash
-gradle :client:run
+gradle :client:run Player1
 ```
 
-Not: Bu aşama, temel prototip katmanıdır. Oyun içi görseller, harita sistemi ve gerçek dungeon mantığı daha sonra eklenir.
+### JAR Dosyaları Oluşturun
+```bash
+gradle buildAll
+```
+
+JAR dosyaları şu yerlerde oluşacaktır:
+- `server/build/libs/super-pixel-duegon-server.jar`
+- `client/build/libs/super-pixel-duegon-client.jar`
 
 ## Tasarım Teması
 
