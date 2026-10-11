@@ -18,3 +18,35 @@ subprojects {
         options.encoding = 'UTF-8'
     }
 }
+
+project(':server') {
+    apply plugin: 'application'
+
+    jar {
+        manifest {
+            attributes 'Main-Class': 'com.superpixel.server.ServerMain'
+        }
+        from {
+            configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+        }
+        archiveFileName = 'super-pixel-duegon-server.jar'
+    }
+}
+
+project(':client') {
+    apply plugin: 'application'
+
+    jar {
+        manifest {
+            attributes 'Main-Class': 'com.superpixel.client.ClientMain'
+        }
+        from {
+            configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+        }
+        archiveFileName = 'super-pixel-duegon-client.jar'
+    }
+}
+
+task buildAll {
+    dependsOn ':server:jar', ':client:jar'
+}
