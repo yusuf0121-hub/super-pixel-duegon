@@ -1,0 +1,13 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+application {
+    mainClass = 'com.superpixel.client.ClientMain'
+}
+
+dependencies {
+    implementation project(':common')
+    implementation 'com.esotericsoftware:kryonet:2.22.0'
+}

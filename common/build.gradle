@@ -1,0 +1,7 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    implementation 'com.esotericsoftware:kryonet:2.22.0'
+}
